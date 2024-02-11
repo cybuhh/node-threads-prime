@@ -1,13 +1,9 @@
 import { Worker } from 'worker_threads';
 import { cpus } from 'os';
-import path from 'path';
-import { getDirname } from './utils.js';
-
-const workerPath = path.resolve(getDirname(import.meta.url), 'worker');
 
 const initWorker = async (start, range) => {
   return new Promise((resolve, reject) => {
-    const worker = new Worker(workerPath, { workerData: { start, range } });
+    const worker = new Worker('./src/worker', { workerData: { start, range } });
     let primes = [];
 
     worker.on('error', reject);
