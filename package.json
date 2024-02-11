@@ -2,14 +2,13 @@
   "name": "prime-numbers",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "src/index",
   "engines": {
     "node": ">=21"
   },
   "scripts": {
     "start": "node src/index",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",

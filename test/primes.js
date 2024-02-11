@@ -1,11 +1,9 @@
-import { jest } from '@jest/globals';
-import generatePrimesOnWorkers from '../src/generatePrimesOnWorkers.js';
-import generatePrimes from '../src/generatePrimes';
-import { checkPrimeSync as isPrime } from 'node:crypto';
+const { generatePrimesOnWorkers, generatePrimes } = require('../src/primes');
+const { checkPrimeSync: isPrime } = require('node:crypto');
 
 jest.setTimeout(1e7);
 
-describe('generatePrimesOnWorkers', () => {
+describe('primes', () => {
   describe('should return correct lenght of results list with correct values for given parameters:', () => {
     // Actual counts taken from https://en.m.wikipedia.org/wiki/Prime-counting_function
     it.concurrent.each`
