@@ -4,6 +4,9 @@
   "description": "",
   "type": "module",
   "main": "src/index",
+  "engines": {
+    "node": ">=21"
+  },
   "scripts": {
     "start": "node src/index",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
