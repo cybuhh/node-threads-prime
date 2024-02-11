@@ -1,6 +1,7 @@
-const generatePrimesOnWorkers = require('../src/generatePrimesOnWorkers');
-const generatePrimes = require('../src/generatePrimes');
-const { checkPrimeSync: isPrime } = require('node:crypto');
+import { jest } from '@jest/globals';
+import generatePrimesOnWorkers from '../src/generatePrimesOnWorkers.js';
+import generatePrimes from '../src/generatePrimes';
+import { checkPrimeSync as isPrime } from 'node:crypto';
 
 jest.setTimeout(1e7);
 

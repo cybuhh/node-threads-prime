@@ -1,18 +1,16 @@
-const generatePrimesOnWorkers = require('./generatePrimesOnWorkers');
-const generatePrimes = require('./generatePrimes');
+import generatePrimesOnWorkers from './generatePrimesOnWorkers.js';
+import generatePrimes from './generatePrimes.js';
 
-const MIN = 2;
-const MAX = 10e7;
+const min = 2;
+const max = 10e7;
 
-(async function main() {
-  console.time('single');
-  const single = generatePrimes(MIN, MAX);
-  console.timeEnd('single');
+console.time('single');
+const single = generatePrimes(min, max);
+console.timeEnd('single');
 
-  console.time('workers');
-  const threaded = await generatePrimesOnWorkers(MIN, MAX);
-  console.timeEnd('workers');
+console.time('workers');
+const threaded = await generatePrimesOnWorkers(min, max);
+console.timeEnd('workers');
 
-  console.log('Prime single is:  ', single.join(' '));
-  console.log('Prime threaded is:', threaded.join(' '));
-})();
+console.log('Primes single result is:  ', single.join(' '));
+console.log('Primes threaded result is:', threaded.join(' '));

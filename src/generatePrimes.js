@@ -24,4 +24,4 @@ function generatePrimes(start, range) {
   return primes;
 }
 
-module.exports = generatePrimes;
+export default generatePrimes;

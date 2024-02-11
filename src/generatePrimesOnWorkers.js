@@ -1,8 +1,9 @@
-const { Worker } = require('worker_threads');
-const { cpus } = require('os');
-const Path = require('path');
+import { Worker } from 'worker_threads';
+import { cpus } from 'os';
+import path from 'path';
+import { getDirname } from './utils.js';
 
-const workerPath = Path.resolve(__dirname, 'worker');
+const workerPath = path.resolve(getDirname(import.meta.url), 'worker');
 
 const initWorker = async (start, range) => {
   return new Promise((resolve, reject) => {
@@ -32,4 +33,4 @@ async function generatePrimesOnWorkers(min, range) {
   return primes.flat();
 }
 
-module.exports = generatePrimesOnWorkers;
+export default generatePrimesOnWorkers;

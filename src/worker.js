@@ -1,9 +1,7 @@
-const { parentPort, workerData } = require('worker_threads');
-const generatePrimes = require('./generatePrimes');
+import { parentPort, workerData } from 'worker_threads';
+import generatePrimes from './generatePrimes.js';
 
-if (!parentPort) {
-  return;
+if (parentPort) {
+  const primes = generatePrimes(workerData.start, workerData.range);
+  parentPort.postMessage(primes);
 }
-
-const primes = generatePrimes(workerData.start, workerData.range);
-parentPort.postMessage(primes);
