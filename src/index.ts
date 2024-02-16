@@ -1,4 +1,4 @@
-const { generatePrimesOnWorkers, generatePrimes } = require('./primes');
+import { generatePrimesOnWorkers, generatePrimes } from './primes';
 
 (async function main() {
   const min = 2;
