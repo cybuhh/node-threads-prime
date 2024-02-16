@@ -7,13 +7,24 @@
     "node": ">=21"
   },
   "scripts": {
-    "start": "node src/index",
-    "test": "jest"
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/src/index",
+    "start:dev": "nodemon",
+    "test": "jest",
+    "test:dev": "jest --watch",
+    "prettier": "prettier -c {src,tests}/**/*.ts",
+    "prettier:fix": "prettier -w {src,tests}/**/*.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
-    "prettier": "^3.2.5"
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }

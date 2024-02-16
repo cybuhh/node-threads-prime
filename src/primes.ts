@@ -1,9 +1,9 @@
-const { cpus } = require('os');
-const initWorker = require('./initWorker');
+import { cpus } from 'os';
+import initWorker from './initWorker';
 
 const MIN = 2;
 
-function generatePrimes(start, range) {
+export function generatePrimes(start: number, range: number): ReadonlyArray<number> {
   const primes = [];
 
   let isPrime = true;
@@ -27,7 +27,7 @@ function generatePrimes(start, range) {
   return primes;
 }
 
-async function generatePrimesOnWorkers(min, range) {
+export async function generatePrimesOnWorkers(min: number, range: number): Promise<ReadonlyArray<number>> {
   const threadCount = cpus().length;
   const end = min + range;
   const rangePerThread = Math.ceil(range / threadCount);
@@ -39,10 +39,6 @@ async function generatePrimesOnWorkers(min, range) {
   });
 
   const primes = await Promise.all(workers);
-  return primes.flat();
-}
 
-module.exports = {
-  generatePrimes,
-  generatePrimesOnWorkers,
-};
+  return primes.flat() as ReadonlyArray<number>;
+}
